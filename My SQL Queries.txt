@@ -1,0 +1,110 @@
+IMDB Design a DB for IMDB 
+1. Movie should have multiple media(Video or Image) 
+2. Movie can belongs to multiple Genre 
+3. Movie can have multiple reviews and Review can belongs to a user 
+4. Artist can have multiple skills 
+5. Artist can perform multiple role in a single film 
+____________________________________________________________________________________________
+My SQL Query:
+
+// Creating Data Base :
+CREATE DATABASE `IMDB`;
+____________________________________________________________________________________________
+
+// 1. Creating table for Movies :
+
+USE `IMDB`;
+CREATE TABLE `Movies` (
+`id` int(100) primary key not null auto_increment,
+`Movie_Name` varchar(100),
+`Year` year,
+`Language` varchar(100),
+`Genre` varchar(100),
+`Artist` varchar(500),
+`Image_URL` varchar(250),
+`Video_URL` varchar(250)
+);
+
+// Example values :
+
+INSERT INTO movies (Movie_Name, Year, Language, Genre, Artist, Image_URL, Video_URL) VALUES 
+(PS-I, 2022, Tamil, Historical, Mani Ratnam, https:img.com, https:video.com)
+____________________________________________________________________________________________
+
+// 2. Creating table for Geners:
+
+USE `IMDB`;
+CREATE TABLE `GENRES` (
+`id` int(100) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+`Name` varchar(100)
+);
+
+// Example values :
+
+INSERT INTO movies (Name) VALUES 
+(Historical)
+____________________________________________________________________________________________
+
+// 3. Creating table for Review:
+
+USE `IMDB`;
+CREATE TABLE `REVIEW` (
+`id` int(100) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+`Review_Description` varchar(1000),
+`User_Name` varchar (30),
+`Review Date` varchar Date
+);
+
+// Example values :
+
+INSERT INTO movies (Review_Description, User_Name, Review Date) VALUES 
+(Good Editing and story, Ganesh, 01/25/2023)
+____________________________________________________________________________________________
+
+// 3. Creating table for User:
+
+USE `IMDB`;
+CREATE TABLE `User` (
+`id` int(100) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+`User Name` varchar(100),
+`email` varchar (100),
+`Mobile_Number` varchar(20)
+);
+
+// Example values :
+
+INSERT INTO movies (User, email, Mobile_Number) VALUES 
+(Ganesh, eganeshbabu7@gmail.com, 9976762127)
+____________________________________________________________________________________________
+
+// 4. Creating table for Artist Skills:
+
+USE `IMDB`;
+CREATE TABLE `Artist` (
+`id` int(100) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+`Artist_Name` varchar(50),
+`Date_Of_Birth` varchar (20),
+`Place_Of_Birth` varchar(30),
+`Education` varchar(500),
+`Skills` varchar(100)
+`Roles` varchar(100)
+);
+
+// Example values :
+
+INSERT INTO movies (Name, Date_Of_Birth, Place_Of_Birth, Education, Skills, Roles) VALUES 
+(Rajinikanth, 12/12/1965, Bangalore, MBA, Acting Films, Actor)
+____________________________________________________________________________________________
+// 5. Creating table for Roles:
+
+USE `IMDB`;
+CREATE TABLE `Roles` (
+`id` int(100) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+`Role_Name` varchar(50)
+);
+
+// Example values :
+
+INSERT INTO movies (Role_Name) VALUES 
+(Director)
+____________________________________________________________________________________________
