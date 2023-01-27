@@ -21,14 +21,16 @@ CREATE TABLE `Movies` (
 `Language` varchar(100),
 `Genre` varchar(100),
 `Artist` varchar(500),
+`Skill` Varchar(50),
+`Roles` Varchar(50),
 `Image_URL` varchar(250),
 `Video_URL` varchar(250)
 );
 
 // Example values :
 
-INSERT INTO movies (Movie_Name, Year, Language, Genre, Artist, Image_URL, Video_URL) VALUES 
-(PS-I, 2022, Tamil, Historical, Mani Ratnam, https:img.com, https:video.com)
+INSERT INTO movies (Movie_Name, Year, Language, Genre, Artist, Skills, Roles, Image_URL, Video_URL) VALUES 
+(1, PS-I, 2022, Tamil, Historical, Mani Ratnam, Movie Direction, Director, https:img.com, https:video.com)
 ____________________________________________________________________________________________
 
 // 2. Creating table for Geners:
@@ -41,8 +43,8 @@ CREATE TABLE `GENRES` (
 
 // Example values :
 
-INSERT INTO movies (Name) VALUES 
-(Historical)
+INSERT INTO movies (id, Name) VALUES 
+(1, Historical)
 ____________________________________________________________________________________________
 
 // 3. Creating table for Review:
@@ -57,8 +59,8 @@ CREATE TABLE `REVIEW` (
 
 // Example values :
 
-INSERT INTO movies (Review_Description, User_Name, Review Date) VALUES 
-(Good Editing and story, Ganesh, 01/25/2023)
+INSERT INTO movies (id, Review_Description, User_Name, Review Date) VALUES 
+(1, Good Editing and story, Ganesh, 01/25/2023)
 ____________________________________________________________________________________________
 
 // 3. Creating table for User:
@@ -73,8 +75,8 @@ CREATE TABLE `User` (
 
 // Example values :
 
-INSERT INTO movies (User, email, Mobile_Number) VALUES 
-(Ganesh, eganeshbabu7@gmail.com, 9976762127)
+INSERT INTO movies (id, User, email, Mobile_Number) VALUES 
+(1, Ganesh, eganeshbabu7@gmail.com, 9976762127)
 ____________________________________________________________________________________________
 
 // 4. Creating table for Artist Skills:
@@ -82,18 +84,13 @@ ________________________________________________________________________________
 USE `IMDB`;
 CREATE TABLE `Artist` (
 `id` int(100) PRIMARY KEY NOT NULL AUTO_INCREMENT,
-`Artist_Name` varchar(50),
-`Date_Of_Birth` varchar (20),
-`Place_Of_Birth` varchar(30),
-`Education` varchar(500),
 `Skills` varchar(100)
-`Roles` varchar(100)
 );
 
 // Example values :
 
-INSERT INTO movies (Name, Date_Of_Birth, Place_Of_Birth, Education, Skills, Roles) VALUES 
-(Rajinikanth, 12/12/1965, Bangalore, MBA, Acting Films, Actor)
+INSERT INTO movies (id, Skills) VALUES 
+(1, Acting Films)
 ____________________________________________________________________________________________
 // 5. Creating table for Roles:
 
@@ -105,6 +102,21 @@ CREATE TABLE `Roles` (
 
 // Example values :
 
-INSERT INTO movies (Role_Name) VALUES 
-(Director)
+INSERT INTO movies (id, Role_Name) VALUES 
+(1, Director)
+____________________________________________________________________________________________
+// 6. Creating table for Artist:
+
+USE `IMDB`;
+CREATE TABLE `Artist` (
+`id` int(100) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+`Artist_Name` varchar(50),
+`Date of Birth` Date,
+`Place of Birth` varchar(50)
+);
+
+// Example values :
+
+INSERT INTO movies (id, Artist_Name, Date of Birth, Place of Birth) VALUES 
+(1, Rajinikanth, 12/12/1965, Bangalore)
 ____________________________________________________________________________________________
